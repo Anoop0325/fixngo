@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     "apps.requests",
     "apps.notifications",
     "apps.admin_panel",
-    "corsheaders",
 ]
 
 MIDDLEWARE = [
