@@ -1,3 +1,4 @@
+
 from .base import *  
 
 DEBUG = True
@@ -8,6 +9,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:5174",
     "http://localhost:3000",
+    "https://fixngo-theta.vercel.app",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
