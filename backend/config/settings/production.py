@@ -24,6 +24,18 @@ X_FRAME_OPTIONS = "DENY"
 MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")  
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+import dj_database_url
+
+# ... (middleware and static files)
+
+DATABASES = {
+    "default": dj_database_url.config(
+        default=config("DATABASE_URL"),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+}
+
 
 REST_FRAMEWORK = {  
     **REST_FRAMEWORK,  

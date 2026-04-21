@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: fixngo-backend
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn config.wsgi
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings.production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: fixngo-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: CORS_ALLOWED_ORIGINS
+        value: http://localhost:5173
+
+databases:
+  - name: fixngo-db
+    databaseName: fixngo
+    user: fixngo_user
