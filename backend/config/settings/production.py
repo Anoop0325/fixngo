@@ -2,7 +2,7 @@
 from .base import *  
 from decouple import config
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [h.strip() for h in config("ALLOWED_HOSTS", default="localhost,127.0.0.1,fixngo-xbxe.onrender.com").split(",") if h.strip()]
 
