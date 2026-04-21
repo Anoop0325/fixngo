@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://fixngo-xbxe.onrender.com'
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
 
 const api = axios.create({
   baseURL: `${BASE_URL}/api`,
@@ -37,7 +37,7 @@ api.interceptors.response.use(
     const originalRequest = error.config
 
     if (error.response?.status === 401 && !originalRequest._retry) {
-      
+
       if (originalRequest.url?.includes('/auth/token/refresh/')) {
         localStorage.clear()
         window.location.href = '/login'
@@ -85,7 +85,7 @@ api.interceptors.response.use(
       }
     }
 
-    
+
     const message =
       error.response?.data?.message ||
       error.response?.data?.detail ||

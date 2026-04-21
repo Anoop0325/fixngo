@@ -13,6 +13,17 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ALLOW_CREDENTIALS = True
 
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "authorization",
+    "content-type",
+    "origin",
+    "user-agent",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://fixngo-theta.vercel.app",
+]
 
 INSTALLED_APPS += ["debug_toolbar"]  
 MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]  
