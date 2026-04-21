@@ -2,8 +2,8 @@ services:
   - type: web
     name: fixngo-backend
     env: python
-    buildCommand: ./build.sh
-    startCommand: gunicorn config.wsgi
+    buildCommand: cd backend && chmod +x build.sh && ./build.sh
+    startCommand: cd backend && gunicorn config.wsgi
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.12
