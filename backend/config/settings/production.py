@@ -4,17 +4,17 @@ from decouple import config
 
 DEBUG = False
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost,127.0.0.1,fixngo-xbxe.onrender.com").split(",")
+ALLOWED_HOSTS = [h.strip() for h in config("ALLOWED_HOSTS", default="localhost,127.0.0.1,fixngo-xbxe.onrender.com").split(",") if h.strip()]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "https://fixngo-theta.vercel.app",
-]
+CORS_ALLOWED_ORIGINS = [o.strip() for o in config(
+    "CORS_ALLOWED_ORIGINS", 
+    default="http://localhost:5173,https://fixngo-theta.vercel.app"
+).split(",") if o.strip()]
 
-CSRF_TRUSTED_ORIGINS = config(
+CSRF_TRUSTED_ORIGINS = [t.strip() for t in config(
     "CSRF_TRUSTED_ORIGINS", 
     default="https://fixngo-xbxe.onrender.com,https://fixngo-theta.vercel.app"
-).split(",")
+).split(",") if t.strip()]
 
 CORS_ALLOW_CREDENTIALS = True
 
