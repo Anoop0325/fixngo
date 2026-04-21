@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* { box-sizing: border-box; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+
+@layer components {
+  
+  .glass-card {
+    @apply bg-surface-card border border-surface-border rounded-2xl backdrop-blur-sm;
+  }
+
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           bg-brand-600 hover:bg-brand-700 active:bg-brand-800
+           text-white font-semibold rounded-xl text-sm
+           transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-surface
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           bg-transparent border border-surface-border hover:border-brand-500 hover:bg-surface-hover
+           text-slate-300 hover:text-white font-semibold rounded-xl text-sm
+           transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-surface
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           bg-red-600 hover:bg-red-700 active:bg-red-800
+           text-white font-semibold rounded-xl text-sm
+           transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-surface
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  
+  .form-input {
+    @apply w-full px-4 py-2.5 bg-surface border border-surface-border
+           text-white placeholder-slate-500 rounded-xl text-sm
+           transition-colors duration-200
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent;
+  }
+
+  
+  .form-label {
+    @apply block text-sm font-medium text-slate-300 mb-1.5;
+  }
+
+  
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-pending   { @apply badge bg-yellow-500/15 text-yellow-400; }
+  .badge-accepted  { @apply badge bg-blue-500/15   text-blue-400;   }
+  .badge-progress  { @apply badge bg-purple-500/15 text-purple-400; }
+  .badge-completed { @apply badge bg-green-500/15  text-green-400;  }
+  .badge-cancelled { @apply badge bg-red-500/15    text-red-400;    }
+  .badge-expired   { @apply badge bg-slate-500/15  text-slate-400;  }
+
+  
+  .section-title {
+    @apply text-2xl font-bold text-white tracking-tight;
+  }
+
+  
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+
+.leaflet-container {
+  background: #1e293b !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.leaflet-tile-pane { filter: brightness(0.85) saturate(0.9); }
+.leaflet-popup-content-wrapper {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  border-radius: 12px !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5) !important;
+}
+.leaflet-popup-tip { background: #1e293b !important; }
+.leaflet-control-zoom a {
+  background: #1e293b !important;
+  color: #94a3b8 !important;
+  border-color: #334155 !important;
+}
+.leaflet-control-zoom a:hover { background: #253348 !important; color: #fff !important; }
